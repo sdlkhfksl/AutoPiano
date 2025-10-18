@@ -1,0 +1,26 @@
+{
+  "name": "@autopiano/audio-engine",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./src/index.ts"
+    }
+  },
+  "scripts": {
+    "build": "tsup src/index.ts --format esm --dts --out-dir dist",
+    "lint": "eslint src --ext .ts",
+    "test": "vitest run --passWithNoTests"
+  },
+  "dependencies": {
+    "@tonejs/midi": "^2.0.27",
+    "@tonejs/piano": "^1.0.7",
+    "mitt": "^3.0.1",
+    "tone": "^14.8.45"
+  },
+  "devDependencies": {
+    "tsup": "^8.0.2",
+    "typescript": "^5.3.3"
+  }
+}

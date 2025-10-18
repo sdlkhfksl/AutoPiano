@@ -1,21 +1,46 @@
-# AutoPiano
+# AutoPiano · Modern Web Edition
 
-![GitHub](https://img.shields.io/github/license/autopiano/autopiano)
+A risk-driven refresh of the AutoPiano experience with a Nuxt 3 + Vue 3 front-end, modular audio engine, and pnpm/Turborepo based workspace. The project is now deploy-ready for Vercel while keeping the classic features such as keyboard play, automatic numbered-score playback, and curated wallpapers.
 
-![logo](https://user-images.githubusercontent.com/8694020/87133555-1afa1200-c2ca-11ea-92d4-c183cf35e4a4.png)
+## Monorepo layout
 
-https://www.autopiano.cn
+```
+apps/
+  web/               → Nuxt 3 application (SSR friendly, Vercel ready)
+packages/
+  audio-engine/      → Tone.js based playback utilities & numbered-score scheduler
+  config/            → Shared datasets (notes, wallpapers, numbered scores, etc.)
+```
 
-AutoPiano allows you to play a virtual piano online freely.
+## Getting started
 
-It's also an excellent music platform for all people.
+```bash
+pnpm install
+pnpm dev      # launches the Nuxt dev server
+```
 
-**This repo is only for Learning purpose.**
+### Useful scripts
 
-**Not safe & suitable for deploying.**
+| Command                | Description                              |
+| ---------------------- | ---------------------------------------- |
+| `pnpm dev`             | Start the web app locally                 |
+| `pnpm build`           | Build all workspaces via Turborepo        |
+| `pnpm lint`            | Run ESLint across workspaces              |
+| `pnpm test`            | Execute Vitest test placeholders          |
+| `pnpm preview`         | Preview the production build              |
 
+## Deployment
 
-## Development
+The project is preconfigured for Vercel. Deploy the `apps/web` project with the default Nuxt preset – static assets (piano samples/wallpapers) are served from `apps/web/public` and the Nitro preset is already set to `vercel` in `nuxt.config.ts`.
 
-- yarn install
-- yarn start
+## Key decisions
+
+- Vue 3 + Nuxt 3 for hybrid rendering and island-friendly UX.
+- Tone.js + `@tonejs/piano` wrapped in `@autopiano/audio-engine` for reusable playback logic.
+- Auto-play scheduler rewritten with typed callbacks to coordinate highlighting and audio safely.
+- Pinia store for wallpapers, composables for audio, and responsive piano UI adapted for touch + keyboard.
+- pnpm workspaces + Turborepo orchestrate builds, linting, and testing.
+
+## License
+
+This project inherits the original AutoPiano open-source license (MIT).
