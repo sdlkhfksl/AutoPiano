@@ -80,6 +80,14 @@ export const useAudioWorkspaceStore = defineStore('audioWorkspace', () => {
     instance?.playScoreModel(score, callbacks)
   }
 
+  function playNumbered(inputs: NumberedScoreInput[], callbacks?: ScheduleCallbacks) {
+    const instance = bootIfNeeded()
+    if (!instance) return
+    const normalized = inputs.filter((input) => Array.isArray(input.track) && input.track.length)
+    if (!normalized.length) return
+    instance.playNumberedScore(normalized, callbacks)
+  }
+
   function stopPlayback() {
     const instance = bootIfNeeded()
     instance?.stopPlayback()
@@ -135,7 +143,7 @@ export const useAudioWorkspaceStore = defineStore('audioWorkspace', () => {
   }
 
   function refreshEffects() {
-    const instance = ensureService()
+    const instance = bootIfNeeded()
     if (!instance) return
     effects.value = instance.getEffects()
     presets.value = instance.getPresets()
@@ -151,6 +159,7 @@ export const useAudioWorkspaceStore = defineStore('audioWorkspace', () => {
     presets: availablePresets,
     playNote,
     playScore,
+    playNumbered,
     stopPlayback,
     startRecording,
     stopRecording,

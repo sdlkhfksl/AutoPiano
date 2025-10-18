@@ -11,8 +11,11 @@
     "test": "vitest run --passWithNoTests"
   },
   "dependencies": {
+    "@autopiano/audio-core": "workspace:*",
     "@autopiano/audio-engine": "workspace:*",
     "@autopiano/config": "workspace:*",
+    "@autopiano/data-core": "workspace:*",
+    "@autopiano/services": "workspace:*",
     "@pinia/nuxt": "^0.5.3",
     "@vueuse/nuxt": "^10.9.0",
     "nuxt": "^3.13.2",

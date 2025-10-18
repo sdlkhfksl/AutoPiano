@@ -68,6 +68,11 @@ export class AudioService {
         running -= 1
         return
       }
+
+      const removeContext = () => {
+        this.activePlaybacks = this.activePlaybacks.filter((ctx) => ctx.scheduler !== scheduler)
+      }
+
       scheduler.schedule({
         events,
         tempo: input.speed,
@@ -79,11 +84,13 @@ export class AudioService {
           onNoteEnd: (event) => callbacks?.onNoteEnd?.(event),
           onComplete: () => {
             running -= 1
+            removeContext()
             if (running <= 0 && !canceled) {
               callbacks?.onComplete?.()
             }
           },
           onCancel: () => {
+            removeContext()
             if (!canceled) {
               canceled = true
               callbacks?.onCancel?.()

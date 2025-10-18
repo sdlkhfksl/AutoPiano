@@ -1,4 +1,3 @@
-import { start } from 'tone'
 export {
   AdvancedScheduler,
   createDefaultEffectDescriptors,
