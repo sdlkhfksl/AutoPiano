@@ -1,0 +1,32 @@
+{
+  "name": "autopiano-web",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "nuxt dev",
+    "build": "nuxt build",
+    "preview": "nuxt preview",
+    "lint": "eslint .",
+    "test": "vitest run --passWithNoTests"
+  },
+  "dependencies": {
+    "@autopiano/audio-engine": "workspace:*",
+    "@autopiano/config": "workspace:*",
+    "@pinia/nuxt": "^0.5.3",
+    "@vueuse/nuxt": "^10.9.0",
+    "nuxt": "^3.13.2",
+    "pinia": "^2.1.7"
+  },
+  "devDependencies": {
+    "@nuxt/eslint-config": "^0.3.13",
+    "@vue/test-utils": "^2.4.4",
+    "@vitest/ui": "^0.34.6",
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-vue": "^9.19.2",
+    "prettier": "^3.1.0",
+    "typescript": "^5.3.3",
+    "vitest": "^0.34.6"
+  }
+}

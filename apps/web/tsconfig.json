@@ -1,0 +1,11 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./*"],
+      "@autopiano/audio-engine": ["../../packages/audio-engine/src/index.ts"],
+      "@autopiano/config": ["../../packages/config/src/index.ts"]
+    }
+  }
+}
