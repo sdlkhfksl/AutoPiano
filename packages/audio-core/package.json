@@ -1,5 +1,5 @@
 {
-  "name": "@autopiano/audio-engine",
+  "name": "@autopiano/audio-core",
   "version": "0.1.0",
   "private": true,
   "type": "module",
@@ -14,7 +14,11 @@
     "test": "vitest run --passWithNoTests"
   },
   "dependencies": {
-    "@autopiano/audio-core": "workspace:*"
+    "@autopiano/data-core": "workspace:*",
+    "@tonejs/midi": "^2.0.27",
+    "@tonejs/piano": "^1.0.7",
+    "mitt": "^3.0.1",
+    "tone": "^14.8.45"
   },
   "devDependencies": {
     "tsup": "^8.0.2",
